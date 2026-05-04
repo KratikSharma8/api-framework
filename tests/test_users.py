@@ -27,9 +27,9 @@ def test_user_name_by_id(user_id, expected_name, api_base_url):
     assert data['data']['name'] == expected_name
 
 @pytest.mark.parametrize('name, email, role', [
-    ('Amit Shah', 'amit@test.com', 'user'),
+    ('Amit Shah', 'amit@test.com', 'User'),
     ('Sneha Patel', 'sneha@test.com', 'admin'),
-    ('Ravi Kumar', 'ravi@test.com', 'user'),
+    ('Ravi Kumar', 'ravi@test.com', 'User'),
 ])
 
 def test_create_user(name, email, role, api_base_url):
@@ -57,7 +57,7 @@ def test_create_user_invalid_email(invalid_email, api_base_url):
     new_user = {
         'name': 'Test User',
         'email': invalid_email,
-        'role': 'user'
+        'role': 'User'
     }
     response = requests.post(f'{api_base_url}/api/users', json=new_user)
     assert response.status_code == 201
@@ -73,7 +73,7 @@ def test_post_user_with_id(api_base_url):
     new_user = {
         'name': 'Test User',
         'email': 'test@example.com',
-        'role': 'user',
+        'role': 'User',
     }
     response = requests.post(f'{api_base_url}/api/users', json=new_user)
     data = response.json()

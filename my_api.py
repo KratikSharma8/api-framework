@@ -5,8 +5,8 @@ app = FastAPI()
 
 users = [
     {"id": 1, "name": "Kratik Sharma", "email": "kratik@test.com", "role": "admin"},
-    {"id": 2, "name": "Rahul Verma", "email": "rahul@test.com", "role": "user"},
-    {"id": 3, "name": "Priya Singh", "email": "priya@test.com", "role": "user"},
+    {"id": 2, "name": "Rahul Verma", "email": "rahul@test.com", "role": "User"},
+    {"id": 3, "name": "Priya Singh", "email": "priya@test.com", "role": "User"},
 ]
 
 @app.get("/api/users")
@@ -26,7 +26,7 @@ def create_user(user: dict):
         "id": len(users) + 1,
         "name": user.get("name", ""),
         "email": user.get("email", ""),
-        "role": user.get("role", "user")
+        "role": user.get("role", "User")
     }
     users.append(new_user)
     return JSONResponse(content={"data": new_user}, status_code=201)

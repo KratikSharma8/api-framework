@@ -72,7 +72,7 @@ def test_each_user_has_a_role(api_base_url):
     response = requests.get(f'{api_base_url}/api/users')
     data = response.json()
     for user in data['data']:
-        assert user['role'] in ['admin', 'user']
+        assert user['role'] in ['admin', 'User']
 
 def test_invalid_user_returns_404(api_base_url):
     response = requests.get(f'{api_base_url}/api/users/999')
