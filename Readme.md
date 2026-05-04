@@ -35,3 +35,6 @@ python -m pytest tests/ -v --html=report.html --self-contained-html
 Open report.html in your browser to view results.
 
 ![](image.png)
+
+## API Test Framework
+[![Run API Tests](https://github.com/KratikSharma8/api-framework/actions/workflows/test.yml/badge.svg)](https://github.com/KratikSharma8/api-framework/actions/workflows/test.yml)
