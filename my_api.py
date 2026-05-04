@@ -29,4 +29,4 @@ def create_user(user: dict):
         "role": user.get("role", "user")
     }
     users.append(new_user)
-    return JSONResponse(content=new_user, status_code=201)
+    return JSONResponse(content={"data": new_user}, status_code=201)

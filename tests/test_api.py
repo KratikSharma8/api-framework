@@ -99,22 +99,22 @@ def test_create_user_returns_201(api_base_url, new_user):
 def test_create_user_has_id(api_base_url, new_user):
     response = requests.post(f'{api_base_url}/api/users', json=new_user)
     data = response.json()
-    assert 'id' in data
+    assert 'id' in data['data']
 
 def test_create_user_name_matches(api_base_url, new_user):
     response = requests.post(f'{api_base_url}/api/users', json=new_user)
     data = response.json()
-    assert data['name'] == new_user['name']
+    assert data['data']['name'] == new_user['name']
 
 def test_create_user_email_matches(api_base_url, new_user):
     response = requests.post(f'{api_base_url}/api/users', json=new_user)
     data = response.json()
-    assert data['email'] == new_user['email']
+    assert data['data']['email'] == new_user['email']
 
 def test_create_user_role_matches(api_base_url, new_user):
     response = requests.post(f'{api_base_url}/api/users', json=new_user)
     data = response.json()
-    assert data['role'] == new_user['role']
+    assert data['data']['role'] == new_user['role']
 
 def test_create_user_with_empty_name(api_base_url):
     new_user = {
@@ -124,7 +124,7 @@ def test_create_user_with_empty_name(api_base_url):
     response = requests.post(f'{api_base_url}/api/users', json=new_user)
     data = response.json()
     assert response.status_code == 201
-    assert data['name'] == ""
+    assert data['data']['name'] == ""
     
 def test_get_user_test_fixture(get_user_1):
     assert get_user_1['data']['name'] == 'Kratik Sharma'
