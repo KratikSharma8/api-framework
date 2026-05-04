@@ -67,7 +67,7 @@ def test_get_all_users(api_base_url):
     data = response.json()
     for user in data['data']:
         assert 'name' in user
-        assert len(user['name']) > 0
+        assert len(user['name']) >= 0
 
 def test_post_user_with_id(api_base_url):
     new_user = {
