@@ -29,3 +29,7 @@ python -m pytest tests/ -v --html=report.html
 - POST create user (201)
 - Boundary tests (user ID 0, negative ID)
 - Field validation (email format, required fields, valid roles)
+
+## Generate HTML Report
+python -m pytest tests/ -v --html=report.html --self-contained-html
+Open report.html in your browser to view results.

@@ -11,6 +11,7 @@ import requests
 ])
 
 def test_get_user_by_id(user_id, expected_status, api_base_url):
+    """Verify that valid user IDs return 200 and invalid IDs return 404."""
     response = requests.get(f'{api_base_url}/api/users/{user_id}')
     assert response.status_code == expected_status
 
