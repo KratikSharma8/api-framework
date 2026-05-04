@@ -33,3 +33,5 @@ python -m pytest tests/ -v --html=report.html
 ## Generate HTML Report
 python -m pytest tests/ -v --html=report.html --self-contained-html
 Open report.html in your browser to view results.
+
+![](image.png)
