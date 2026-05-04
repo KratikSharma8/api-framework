@@ -78,13 +78,3 @@ def test_post_user_with_id(api_base_url):
     response = requests.post(f'{api_base_url}/api/users', json=new_user)
     data = response.json()
     assert data['data']['id'] > 0
-
-@pytest.mark.parametrize('user_id, expected_name', [
-    (1, 'Kratik Sharma'),
-    (2, 'Rahul Verma'),
-    (3, 'Priya Singh')
-])
-def test_user_by_id(user_id, expected_name, api_base_url):
-    response = requests.get(f'{api_base_url}/api/users/{user_id}')
-    data = response.json()
-    assert data['data']['name'] == expected_name

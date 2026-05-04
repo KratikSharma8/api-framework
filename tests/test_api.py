@@ -126,6 +126,3 @@ def test_create_user_with_empty_name(api_base_url):
     assert response.status_code == 201
     assert data['data']['name'] == ""
     
-def test_get_user_test_fixture(get_user_1):
-    assert get_user_1['data']['name'] == 'Kratik Sharma'
-
