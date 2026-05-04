@@ -1,0 +1,28 @@
+name: Run API Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Start FastAPI server
+        run: python -m uvicorn my_api:app --host 127.0.0.1 --port 8000 &
+
+      - name: Wait for server to start
+        run: sleep 3
+
+      - name: Run tests
+        run: python -m pytest tests/ -v
